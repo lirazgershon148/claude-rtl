@@ -1,0 +1,36 @@
+/* Claude RTL — v1.2 CSS fixes */
+
+/* ---- RTL bullet lists: move markers to right side ---- */
+[dir="rtl"] ul,
+[dir="rtl"] ol {
+  padding-right: 2em;
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+[dir="rtl"] li {
+  text-align: right;
+}
+
+/* When li itself has dir=rtl */
+li[dir="rtl"] {
+  list-style-position: inside;
+  text-align: right;
+}
+
+ul:has(> li[dir="rtl"]),
+ol:has(> li[dir="rtl"]) {
+  padding-right: 2em;
+  padding-left: 0;
+}
+
+/* ---- Don't touch code blocks or inputs ---- */
+[dir="rtl"] code,
+[dir="rtl"] pre,
+[dir="rtl"] .code-block,
+[dir="rtl"] textarea,
+[dir="rtl"] input {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: normal !important;
+}
